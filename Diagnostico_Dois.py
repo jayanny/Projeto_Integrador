@@ -40,26 +40,41 @@ lista_sintomas = []
 
 def funcao(lista):  # função para iterar sobre a lista sintomas
     for i in lista:
-        print(f' \nVocê apresenta {i}?')  # pergunta se a pessoa tem ou não determinado sintoma
-        print('Responda Sim(S) ou Não (N)')
-        positivo = input('>>> ')
-        positivo = positivo.upper()  # trasnforma tudo pra letra maiuscula
-        if positivo == 'S':  # caso ele tenha tal sintoma
-            lista_sintomas.append(i)  # acrescenta na lista lista_sintomas
-
+        contador = True
+        while contador:
+               print(f' \nVocê apresenta {i}?')  # pergunta se a pessoa tem ou não determinado sintoma
+               print('Responda Sim(S) ou Não (N)')
+               positivo = input('>>> ')
+               positivo = positivo.upper()  # trasnforma tudo pra letra maiuscula
+               if positivo == 'S':  # caso ele tenha tal sintoma
+                   lista_sintomas.append(i)  # acrescenta na lista lista_sintomas
+                   contador = False
+               elif positivo == 'N':
+                   contador = False
+               elif positivo != 'S' and positivo != "N":
+                   print(f'{positivo} é uma entrada invalida digite "S(sim) e N(não)')
+                   contador = True  
 
 funcao(sintomas[0:5])  # inicia-se com os primeiros 5 sintomas da lista
 
 for i in range(5, 37, 4):  # gerando os valores de i
     j = i + 4  # gerando valores de j
-    print('\nVoce possui mais sintomas?')
-    print('Responda Sim(S) ou Não (N)')
-    confirm = input('>>> ')
-    confirm = confirm.upper()
-    if confirm == 'S':  # caso a pessoa tenha mais sintomas outros 4 sintomas aparecrão pra ela na tela
-        funcao(sintomas[i:j])  # passa como parametro a sub lita que vai de i até j
-    else:
-        break
+    contador1 = True
+           while contador:
+           print('\nVoce possui mais sintomas?')
+           print('Responda Sim(S) ou Não (N)')
+           confirm = input('>>> ')
+           confirm = confirm.upper()
+           if confirm == 'S':  # caso a pessoa tenha mais sintomas outros 4 sintomas aparecrão pra ela na tela
+               funcao(sintomas[i:j])  # passa como parametro a sub lita que vai de i até j
+               contador1 = False
+        elif confirm == 'N':
+            para = 1
+            contador1 = False
+        elif confirm != "S" and confirm != 'N':
+            print(f'{confirm} é uma entrada invalida digite "S(sim) e N(não)')
+    if para == 1:
+        break       
 
 # converte as listas em conjuntos
 asma = set(asma)
