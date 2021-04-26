@@ -60,14 +60,14 @@ funcao(sintomas[0:5])  # inicia-se com os primeiros 5 sintomas da lista
 for i in range(5, 37, 4):  # gerando os valores de i
     j = i + 4  # gerando valores de j
     contador1 = True
-           while contador:
-           print('\nVoce possui mais sintomas?')
-           print('Responda Sim(S) ou Não (N)')
-           confirm = input('>>> ')
-           confirm = confirm.upper()
-           if confirm == 'S':  # caso a pessoa tenha mais sintomas outros 4 sintomas aparecrão pra ela na tela
-               funcao(sintomas[i:j])  # passa como parametro a sub lita que vai de i até j
-               contador1 = False
+    while contador1:
+        print('\nVoce possui mais sintomas?')
+        print('Responda Sim(S) ou Não (N)')
+        confirm = input('>>> ')
+        confirm = confirm.upper()
+        if confirm == 'S':  # caso a pessoa tenha mais sintomas outros 4 sintomas aparecrão pra ela na tela
+            funcao(sintomas[i:j])  # passa como parametro a sub lita que vai de i até j
+            contador1 = False
         elif confirm == 'N':
             para = 1
             contador1 = False
